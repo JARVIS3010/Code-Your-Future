@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title> Code Your Future </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        
+        <style>
+            #Banner{
+                height: 360px;
+                object-fit: cover;
+                width: 100%;
+                margin-bottom: 16px;
+            }
+        </style>
+    </head>
+
+    <body>
+        {% include 'nav.html' %}        
+        <img id = "Banner" src = "http://127.0.0.1:5000/static/banner.jpg" class="img-fluid">
+        <div class = "container">
+
+            <h1 class="text-center mt-2 mb-4">
+                {{company_name}}
+            </h1>
+
+            <div class="row" style="margin-bottom: 16px;">
+                <div class="col-md-6">
+            <p class="lead">
+                Code Your Future is dedicated to empowering individuals to take charge
+                of their career paths in the ever-evolving tech industry. This platform 
+                offers a comprehensive range of resources and tools designed to help you 
+                navigate your career journey, whether you're just starting out or looking 
+                to advance. From detailed guides on coding best practices to personalized 
+                career advice and industry insights, "Code Your Future" provides the support 
+                you need to make informed decisions and achieve your professional goals. Our 
+                mission is to bridge the gap between ambition and success by equipping you with 
+                the knowledge and skills required to thrive in the tech world. Join us in shaping 
+                your future and unlocking your full potential with the power of code.
+            </p>
+                </div>
+                <div class="d-none d-md-block col-md-6"> 
+                <img src="/static/working.jpg" style="height: 320px; border-radius: 4px;">
+                </div>
+            </div>
+
+            <h2 class="text-center mt-2 mb-4">Job Openings</h2>
+
+            <div>
+                {% for job in jobs %}
+                    {% include 'jobitem.html' %}
+                {% endfor %}
+            </div>
+
+            <div class="text-center">
+                <a class="btn btn-primary btn-lg" href="mailto:kansalmohak2003@gmail.com?subject=Question%20about%20Job%20Openings&body=My%20name%3A%20%3Cyour%20name%20here%3E%0D%0A%0D%0AMy%20Question%3A%20%3CEnter%20question%20here%3E">
+                    Contact us
+                </a>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+    </body>
+</html>
